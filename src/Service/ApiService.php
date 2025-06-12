@@ -4,47 +4,13 @@ namespace App\Service;
 
 class ApiService
 {
-    public function fetchProductsWithFilters(array|null $filters = [],int $page = 1, int $limit = 10): array
+    public function fetchProductsWithFilters(array|null $filters = [], int $page = 1, int $limit = 10): array
     {
-        $url = 'http://localhost:3000/products';
-
-        if (!empty($filters['category'])) {
-            $url .= '?category=' . urlencode($filters['category']);
-        }
-        $response = file_get_contents($url);
-
-        if ($response === false) {
-            return [];
-        }
-        $products = json_decode($response, true);
-
-        if (isset($filters['minPrice'])) {
-            $products = array_filter(
-                $products, function ($product) use ($filters) {
-                    return $product['price'] >= $filters['minPrice'];
-                }
-            );
-        }
-
-        if (isset($filters['maxPrice'])) {
-            $products = array_filter(
-                $products, function ($product) use ($filters) {
-                    return $product['price'] <= $filters['maxPrice'];
-                }
-            );
-        }
-
-        if (isset($filters['name'])) {
-            $products = array_filter(
-                $products, function ($product) use ($filters) {
-                    return stripos($product['name'], $filters['name']) !== false;
-                }
-            );
-        }
+        $products = $this->fetchProductsFromApi($filters);
+        $products = $this->applyFilters($products, $filters);
 
         $totalProducts = count($products);
         $totalPages = ceil($totalProducts / $limit);
-
         $offset = ($page - 1) * $limit;
         $paginatedProducts = array_slice($products, $offset, $limit);
 
@@ -56,66 +22,84 @@ class ApiService
 
     public function fetchUniqueCategories(): array
     {
-        $uniqueCategories = array_unique(
-            array_map(
-                function ($product) {
-                    return $product['category'] ?? null;
-                }, $this->fetchProductsWithFilters([], 1, 1000)['items']
-            )
-        );
-        return array_filter($uniqueCategories);
+        $products = $this->fetchProductsWithFilters([], 1, 1000)['items'];
+        $categories = array_column($products, 'category');
+        return array_values(array_filter(array_unique($categories)));
     }
 
     public function fetchProductById(string $id): array|null
     {
-        $url = 'http://localhost:3000/products?id=' . $id;
-        $response = file_get_contents($url);
-
-        if ($response === false) {
-            return null;
-        }
-
-        $product = json_decode($response, true);
-        return $product ?: null;
+        $response = file_get_contents($_ENV['JSONSERVER_URL'] . '/products?id=' . $id);
+        return $response === false ? null : (json_decode($response, true) ?: null);
     }
 
-    public function getDeliveryMethodsWithCorrectWeight(int $orderTotalWeight): array
+    public function getDeliveryMethodsWithCorrectWeight(int $orderTotalWeight = 0): array
     {
-        $weightInKg = $orderTotalWeight / 1000;
-        $url = 'http://localhost:3000/carriers?max-weight_gte=' . $weightInKg;
-        $response = file_get_contents($url);
-
-        if ($response === false) {
+        if ($orderTotalWeight < 0) {
             return [];
         }
-
-        $deliveryMethods = json_decode($response, true);
-        return array_values($deliveryMethods);
+        $url = $_ENV['JSONSERVER_URL'] . '/carriers?max-weight_gte=' . ($orderTotalWeight / 1000);
+        $response = file_get_contents($url);
+        return $response === false ? [] : array_values(json_decode($response, true));
     }
 
     public function getDeliveryMethodById(string $id): array|null
     {
-        $url = 'http://localhost:3000/carriers?id=' . $id;
-        $response = file_get_contents($url);
-
-        if ($response === false) {
-            return null;
-        }
-
-        $deliveryMethod = json_decode($response, true);
-        return $deliveryMethod ?: null;
+        $response = file_get_contents($_ENV['JSONSERVER_URL'] . '/carriers?id=' . $id);
+        return $response === false ? null : (json_decode($response, true) ?: null);
     }
 
     public function getPaymentMethods(): array
     {
-        $url = 'http://localhost:3000/payments';
-        $response = file_get_contents($url);
+        $response = file_get_contents($_ENV['JSONSERVER_URL'] . '/payments');
+        return $response === false ? [] : (json_decode($response, true) ?: []);
+    }
 
+    private function fetchProductsFromApi(array $filters): array
+    {
+        $url = $_ENV['JSONSERVER_URL'] . '/products';
+        if (!empty($filters['category'])) {
+            $url .= '?category=' . urlencode($filters['category']);
+        }
+        $response = file_get_contents($url);
         if ($response === false) {
             return [];
         }
+        return json_decode($response, true);
+    }
 
-        $paymentMethods = json_decode($response, true);
-        return $paymentMethods ?: [];
+    private function applyFilters(array $products, array $filters): array
+    {
+        if (isset($filters['minPrice'])) {
+            $products = $this->filterByMinPrice($products, $filters['minPrice']);
+        }
+        if (isset($filters['maxPrice'])) {
+            $products = $this->filterByMaxPrice($products, $filters['maxPrice']);
+        }
+        if (isset($filters['name'])) {
+            $products = $this->filterByName($products, $filters['name']);
+        }
+        return $products;
+    }
+
+    private function filterByMinPrice(array $products, $minPrice): array
+    {
+        return array_filter($products, function ($product) use ($minPrice) {
+            return $product['price'] >= $minPrice;
+        });
+    }
+
+    private function filterByMaxPrice(array $products, $maxPrice): array
+    {
+        return array_filter($products, function ($product) use ($maxPrice) {
+            return $product['price'] <= $maxPrice;
+        });
+    }
+
+    private function filterByName(array $products, $name): array
+    {
+        return array_filter($products, function ($product) use ($name) {
+            return stripos($product['name'], $name) !== false;
+        });
     }
 }

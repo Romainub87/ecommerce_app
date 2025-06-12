@@ -37,11 +37,7 @@
                         <div class="flex items-center justify-between py-2 font-bold border-t">
                             <span>Total à payer</span>
                             <span>
-                    {{
-                    (cart|reduce((acc, item) => acc + (item.product[0].price * item.quantity), 0)
-                    + deliveryMethod.shipping_fee|default(0))
-                    |number_format(2, ',', ' ')
-                    }} €
+                    {{ totalOrder|number_format(2, ',', ' ') }} €
                 </span>
             </div>
             <ul class="mb-4 mt-4">

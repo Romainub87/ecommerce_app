@@ -129,6 +129,7 @@ final class CheckoutController extends AbstractController
             'checkout/payment.html.twig', [
             'transferForm' => $this->createForm(BankTransferForm::class)->createView(),
             'cardForm' => $this->createForm(BankCardForm::class)->createView(),
+            'totalOrder' => $this->orderService->getOrderTotal($cart, $deliveryMethod['shipping_fee'] ?? 0.0),
             'cart' => $cart,
             'deliveryInfo' => $deliveryInfo,
             'deliveryMethod' => $deliveryMethod,
@@ -148,11 +149,15 @@ final class CheckoutController extends AbstractController
 
         $address = $orderService->getOrCreateAddress($deliveryInfo, $em);
         $customer = $orderService->getOrCreateCustomer($deliveryInfo, $address, $em);
-        $order = $orderService->createOrder($deliveryMethod, $paymentMethod, $customer, $cart, $em);
+        try {
+            $orderService->createOrder($deliveryMethod, $paymentMethod, $customer, $cart, $em);
+        } catch (\Exception $e) {
+            $this->addFlash('error', 'Une erreur est survenue lors de la création de la commande. Veuillez réessayer.');
+            return $this->redirectToRoute('checkout_payment');
+        }
 
         $em->flush();
 
-        // Nettoyer la session après la confirmation de la commande
         $request->getSession()->remove('delivery_info');
         $request->getSession()->remove('delivery_method');
         $request->getSession()->remove('payment_method');

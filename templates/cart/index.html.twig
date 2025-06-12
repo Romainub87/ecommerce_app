@@ -40,7 +40,7 @@
                 </ul>
             </form>
             <div class="flex justify-end mt-6">
-                <span class="text-xl font-bold text-gray-800">Sous-total: {{ cart|reduce((carry, cartItem) => carry + (cartItem.product[0].price * cartItem.quantity), 0) }}€</span>
+                <span class="text-xl font-bold text-gray-800">Sous-total: {{ totalCart }}€</span>
             </div>
             <div class="flex justify-end">
                 <a href="{{ path('checkout_details') }}" id="next-step" class="bg-blue-500 w-[10vw] text-center text-white mt-4 py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300">

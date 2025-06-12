@@ -20,7 +20,44 @@ services:
       # - ./docker/db/data:/var/lib/postgresql/data:rw
 ###< doctrine/doctrine-bundle ###
 
+  database-test:
+    image: postgres:${POSTGRES_VERSION:-16}-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB_TEST:-ecommerce_test}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-root}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+    ports:
+      - "${POSTGRES_PORT_TEST:-5434}:5432"
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-d", "${POSTGRES_DB_TEST:-ecommerce_test}", "-U", "${POSTGRES_USER:-postgres}" ]
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+    volumes:
+      - database_data_test:/var/lib/postgresql/data:rw
+
+  json-server:
+    image: node:20-alpine
+    container_name: json_server
+    working_dir: /app
+    volumes:
+      - ./docker:/app
+    command: sh -c "npm install -g json-server && json-server data.json --port 3000"
+    ports:
+      - "3000:3000"
+
+  json-server-test:
+    image: node:20-alpine
+    container_name: json_server_test
+    working_dir: /app
+    volumes:
+      - ./docker:/app:rw
+    command: sh -c "npm install -g json-server && cp data.origin.json data_test.json && json-server data_test.json --port 3001"
+    ports:
+      - "3001:3001"
+
 volumes:
 ###> doctrine/doctrine-bundle ###
   database_data:
+  database_data_test:
 ###< doctrine/doctrine-bundle ###

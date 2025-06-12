@@ -76,9 +76,12 @@ class CartController extends AbstractController
     {
         $cart = $session->get('cart', []);
 
+        $totalCart = $this->cartService->getCartTotal($cart);
+
         return $this->render(
             'cart/index.html.twig', [
             'cart' => $cart,
+            'totalCart' => $totalCart,
             ]
         );
     }

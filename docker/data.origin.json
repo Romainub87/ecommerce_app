@@ -1,0 +1,1048 @@
+{
+  "products": [
+    {
+      "id": "e0a1b2c3-d4e5-6f7a-8b9c-0d1e2f3a4b5c",
+      "name": "T-shirt Coton Bio Blanc",
+      "description_short": "Un essentiel doux et respectueux de l'environnement.",
+      "description_long": "Ce t-shirt blanc en coton 100% biologique offre une sensation douce et confortable. Un basique indispensable pour un style décontracté et éco-responsable.",
+      "price": 25,
+      "currency": "EUR",
+      "stock": 98,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_bio_blanc_1.jpg",
+        "https://example.com/images/tshirt_bio_blanc_2.jpg"
+      ]
+    },
+    {
+      "id": "f1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+      "name": "T-shirt Imprimé Graphique 'Voyage'",
+      "description_short": "Design unique inspiré du voyage et de l'aventure.",
+      "description_long": "Affichez votre esprit d'aventure avec ce t-shirt doté d'un imprimé graphique original. Idéal pour ceux qui aiment explorer le monde et les styles audacieux.",
+      "price": 35.5,
+      "currency": "EUR",
+      "stock": 111,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_voyage_1.jpg",
+        "https://example.com/images/tshirt_voyage_2.jpg"
+      ]
+    },
+    {
+      "id": "a2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e",
+      "name": "T-shirt Rayures Marines",
+      "description_short": "Classique indémodable, style marin.",
+      "description_long": "Adoptez un look intemporel avec ce t-shirt à rayures marines. Parfait pour un style casual chic et facile à assortir avec un jean ou un chino.",
+      "price": 29.99,
+      "currency": "EUR",
+      "stock": 141,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_rayures_marines_1.jpg",
+        "https://example.com/images/tshirt_rayures_marines_2.jpg"
+      ]
+    },
+    {
+      "id": "b3d4e5f6-a7b8-9c0d-1e2f-3a4b5c6d7e8f",
+      "name": "T-shirt Col V Basique Noir",
+      "description_short": "Un essentiel polyvalent pour le quotidien.",
+      "description_long": "Ce t-shirt noir à col V est un basique indispensable. Sa coupe ajustée et son tissu doux en font un allié confortable pour toutes les occasions.",
+      "price": 19,
+      "currency": "EUR",
+      "stock": 249,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_col_v_noir_1.jpg",
+        "https://example.com/images/tshirt_col_v_noir_2.jpg"
+      ]
+    },
+    {
+      "id": "c4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a",
+      "name": "T-shirt Sport Anti-Transpirant",
+      "description_short": "Conçu pour l'effort intense.",
+      "description_long": "Ce t-shirt de sport est fabriqué dans un tissu technique anti-transpirant, idéal pour vous garder au sec et à l'aise pendant vos entraînements.",
+      "price": 40,
+      "currency": "EUR",
+      "stock": 99,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_sport_1.jpg",
+        "https://example.com/images/tshirt_sport_2.jpg"
+      ]
+    },
+    {
+      "id": "d5f6a7b8-c9d0-e1f2-a3b4-c5d6e7f8a9b0",
+      "name": "T-shirt Manches Longues Gris",
+      "description_short": "Idéal pour la mi-saison ou sous une veste.",
+      "description_long": "Ce t-shirt à manches longues en coton doux est parfait pour les journées plus fraîches ou pour être porté en superposition sous un pull ou une veste.",
+      "price": 32,
+      "currency": "EUR",
+      "stock": 180,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_ml_gris_1.jpg",
+        "https://example.com/images/tshirt_ml_gris_2.jpg"
+      ]
+    },
+    {
+      "id": "e6a7b8c9-d0e1-f2a3-b4c5-d6e7f8a9b0c1",
+      "name": "T-shirt Vintage Délavé Noir",
+      "description_short": "Look rétro et décontracté.",
+      "description_long": "Adoptez un style vintage avec ce t-shirt noir au traitement délavé. Sa texture douce et son aspect vieilli en font un vêtement au caractère unique.",
+      "price": 28.5,
+      "currency": "EUR",
+      "stock": 90,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_vintage_noir_1.jpg",
+        "https://example.com/images/tshirt_vintage_noir_2.jpg"
+      ]
+    },
+    {
+      "id": "f7b8c9d0-e1f2-a3b4-c5d6-e7f8a9b0c1d2",
+      "name": "T-shirt Col Rond Côtelé Beige",
+      "description_short": "Texture unique et confort stretch.",
+      "description_long": "Ce t-shirt à col rond présente une subtile texture côtelée et un tissu extensible, offrant un confort agréable et un look raffiné.",
+      "price": 26,
+      "currency": "EUR",
+      "stock": 130,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_cotele_beige_1.jpg",
+        "https://example.com/images/tshirt_cotele_beige_2.jpg"
+      ]
+    },
+    {
+      "id": "a8c9d0e1-f2a3-b4c5-d6e7-f8a9b0c1d2e3",
+      "name": "T-shirt Uni Vert Sapin",
+      "description_short": "Couleur profonde et polyvalente.",
+      "description_long": "Un t-shirt vert sapin uni, idéal pour ajouter une touche de couleur à votre tenue sans faire de compromis sur la simplicité et le confort.",
+      "price": 22,
+      "currency": "EUR",
+      "stock": 160,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_uni_vert_1.jpg",
+        "https://example.com/images/tshirt_uni_vert_2.jpg"
+      ]
+    },
+    {
+      "id": "b9d0e1f2-a3b4-c5d6-e7f8-a9b0c1d2e3f4",
+      "name": "T-shirt Coupe Loose Blanc",
+      "description_short": "Confort et style décontracté oversized.",
+      "description_long": "Ce t-shirt à la coupe loose (ample) offre un confort maximal et un style décontracté très tendance, parfait pour un look urbain et moderne.",
+      "price": 30,
+      "currency": "EUR",
+      "stock": 110,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_loose_blanc_1.jpg",
+        "https://example.com/images/tshirt_loose_blanc_2.jpg"
+      ]
+    },
+    {
+      "id": "c0e1f2a3-b4c5-d6e7-f8a9-b0c1d2e3f4a5",
+      "name": "T-shirt Tie-Dye Multicolore",
+      "description_short": "Un style psychédélique unique.",
+      "description_long": "Exprimez votre créativité avec ce t-shirt tie-dye aux couleurs vives. Chaque pièce est unique pour un look qui ne passe pas inaperçu.",
+      "price": 45,
+      "currency": "EUR",
+      "stock": 80,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_tie_dye_1.jpg",
+        "https://example.com/images/tshirt_tie_dye_2.jpg"
+      ]
+    },
+    {
+      "id": "d1f2a3b4-c5d6-e7f8-a9b0-c1d2e3f4a5b6",
+      "name": "T-shirt Henley Boutonné",
+      "description_short": "Détail élégant et décontracté.",
+      "description_long": "Le t-shirt Henley avec sa patte de boutonnage offre un look casual chic. Idéal pour un style sophistiqué mais détendu.",
+      "price": 38,
+      "currency": "EUR",
+      "stock": 95,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_henley_1.jpg",
+        "https://example.com/images/tshirt_henley_2.jpg"
+      ]
+    },
+    {
+      "id": "e2a3b4c5-d6e7-f8a9-b0c1-d2e3f4a5b6c7",
+      "name": "T-shirt Oversize avec Poche",
+      "description_short": "Tendance et pratique avec une poche poitrine.",
+      "description_long": "Ce t-shirt oversize combine confort et style avec sa coupe ample et sa petite poche poitrine discrète, parfaite pour un look moderne.",
+      "price": 33,
+      "currency": "EUR",
+      "stock": 140,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_oversize_poche_1.jpg",
+        "https://example.com/images/tshirt_oversize_poche_2.jpg"
+      ]
+    },
+    {
+      "id": "f3b4c5d6-e7f8-a9b0-c1d2-e3f4a5b6c7d8",
+      "name": "T-shirt à Motifs Géométriques",
+      "description_short": "Design moderne et original.",
+      "description_long": "Ajoutez une touche artistique à votre garde-robe avec ce t-shirt orné de motifs géométriques abstraits. Un choix parfait pour affirmer votre style.",
+      "price": 37,
+      "currency": "EUR",
+      "stock": 70,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_geometrique_1.jpg",
+        "https://example.com/images/tshirt_geometrique_2.jpg"
+      ]
+    },
+    {
+      "id": "a4c5d6e7-f8a9-b0c1-d2e3-f4a5b6c7d8e9",
+      "name": "T-shirt Basique Bleu Marine",
+      "description_short": "Un essentiel intemporel de la garde-robe.",
+      "description_long": "Le t-shirt bleu marine est un grand classique, facile à porter et à associer avec toutes les couleurs. Sa matière douce assure un confort optimal.",
+      "price": 19,
+      "currency": "EUR",
+      "stock": 220,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_bleu_marine_1.jpg",
+        "https://example.com/images/tshirt_bleu_marine_2.jpg"
+      ]
+    },
+    {
+      "id": "b5d6e7f8-a9b0-c1d2-e3f4-a5b6c7d8e9f0",
+      "name": "T-shirt Col Montant Noir",
+      "description_short": "Élégance minimaliste et confort.",
+      "description_long": "Ce t-shirt à col montant noir offre un look épuré et moderne. Parfait pour une superposition ou comme pièce maîtresse de votre tenue.",
+      "price": 30,
+      "currency": "EUR",
+      "stock": 100,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_col_montant_1.jpg",
+        "https://example.com/images/tshirt_col_montant_2.jpg"
+      ]
+    },
+    {
+      "id": "c6e7f8a9-b0c1-d2e3-f4a5-b6c7d8e9f0a1",
+      "name": "T-shirt à Manches Courtes Enfant",
+      "description_short": "Confortable et résistant pour les jeunes.",
+      "description_long": "Un t-shirt coloré et durable, spécialement conçu pour les enfants. Idéal pour leurs jeux et activités quotidiennes.",
+      "price": 15,
+      "currency": "EUR",
+      "stock": 300,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_enfant_1.jpg",
+        "https://example.com/images/tshirt_enfant_2.jpg"
+      ]
+    },
+    {
+      "id": "d7f8a9b0-c1d2-e3f4-a5b6-c7d8e9f0a1b2",
+      "name": "T-shirt Slim Fit Kaki",
+      "description_short": "Coupe ajustée et couleur tendance.",
+      "description_long": "Ce t-shirt slim fit kaki mettra en valeur votre silhouette. Sa couleur tendance est facile à intégrer dans un look casual ou plus habillé.",
+      "price": 24,
+      "currency": "EUR",
+      "stock": 140,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_slim_kaki_1.jpg",
+        "https://example.com/images/tshirt_slim_kaki_2.jpg"
+      ]
+    },
+    {
+      "id": "e8a9b0c1-d2e3-f4a5-b6c7-d8e9f0a1b2c3",
+      "name": "T-shirt sans Manches Sport",
+      "description_short": "Liberté de mouvement pour le sport.",
+      "description_long": "Idéal pour les activités sportives intenses, ce t-shirt sans manches assure une liberté de mouvement totale et une bonne évacuation de la transpiration.",
+      "price": 28,
+      "currency": "EUR",
+      "stock": 110,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_sl_sport_1.jpg",
+        "https://example.com/images/tshirt_sl_sport_2.jpg"
+      ]
+    },
+    {
+      "id": "f9b0c1d2-e3f4-a5b6-c7d8-e9f0a1b2c3d4",
+      "name": "T-shirt Coton Pima Doux",
+      "description_short": "Luxe et douceur suprême.",
+      "description_long": "Découvrez le confort inégalé du coton Pima avec ce t-shirt ultra-doux et résistant. Une expérience de port exceptionnelle pour le quotidien.",
+      "price": 42,
+      "currency": "EUR",
+      "stock": 90,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_pima_1.jpg",
+        "https://example.com/images/tshirt_pima_2.jpg"
+      ]
+    },
+    {
+      "id": "a0c1d2e3-f4a5-b6c7-d8e9-f0a1b2c3d4e5",
+      "name": "T-shirt Logo Brodée",
+      "description_short": "Détail raffiné et discret.",
+      "description_long": "Ce t-shirt est agrémenté d'un petit logo brodé sur la poitrine, ajoutant une touche de sophistication discrète à un basique confortable.",
+      "price": 31,
+      "currency": "EUR",
+      "stock": 120,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_logo_brode_1.jpg",
+        "https://example.com/images/tshirt_logo_brode_2.jpg"
+      ]
+    },
+    {
+      "id": "b1d2e3f4-a5b6-c7d8-e9f0-a1b2c3d4e5f6",
+      "name": "T-shirt à Col Large Femme",
+      "description_short": "Confortable et féminin.",
+      "description_long": "Ce t-shirt à col large est conçu pour une silhouette féminine et décontractée. Idéal pour un look relaxé et stylé.",
+      "price": 27,
+      "currency": "EUR",
+      "stock": 160,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_col_large_femme_1.jpg",
+        "https://example.com/images/tshirt_col_large_femme_2.jpg"
+      ]
+    },
+    {
+      "id": "c2e3f4a5-b6c7-d8e9-f0a1-b2c3d4e5f6a7",
+      "name": "T-shirt Séchage Rapide Randonnée",
+      "description_short": "Performance pour les activités en extérieur.",
+      "description_long": "Ce t-shirt technique à séchage rapide est parfait pour la randonnée et les activités en extérieur, vous gardant au sec et à l'aise.",
+      "price": 39,
+      "currency": "EUR",
+      "stock": 85,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_sechage_rapide_1.jpg",
+        "https://example.com/images/tshirt_sechage_rapide_2.jpg"
+      ]
+    },
+    {
+      "id": "d3f4a5b6-c7d8-e9f0-a1b2-c3d4e5f6a7b8",
+      "name": "T-shirt Manches Courtes 'Minimal'",
+      "description_short": "Simplicité et élégance épurée.",
+      "description_long": "Un t-shirt au design minimaliste, sans aucun motif superflu. Sa coupe parfaite et son tissu de qualité en font un indispensable pour un style épuré.",
+      "price": 26,
+      "currency": "EUR",
+      "stock": 170,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_minimal_1.jpg",
+        "https://example.com/images/tshirt_minimal_2.jpg"
+      ]
+    },
+    {
+      "id": "e4a5b6c7-d8e9-f0a1-b2c3-d4e5f6a7b8c9",
+      "name": "T-shirt avec Impression Photo Ville",
+      "description_short": "Hommage urbain stylé.",
+      "description_long": "Affichez votre amour pour la ville avec ce t-shirt présentant une impression photo de paysage urbain. Un design moderne et évocateur.",
+      "price": 38,
+      "currency": "EUR",
+      "stock": 95,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_photo_ville_1.jpg",
+        "https://example.com/images/tshirt_photo_ville_2.jpg"
+      ]
+    },
+    {
+      "id": "f5b6c7d8-e9f0-a1b2-c3d4-e5f6a7b8c9d0",
+      "name": "T-shirt Coton Bio Coloré (Jaune)",
+      "description_short": "Éclatant et éco-friendly.",
+      "description_long": "Ajoutez une touche de couleur à votre garde-robe avec ce t-shirt jaune vif en coton biologique. Confortable et joyeux pour les journées ensoleillées.",
+      "price": 25,
+      "currency": "EUR",
+      "stock": 130,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_bio_jaune_1.jpg",
+        "https://example.com/images/tshirt_bio_jaune_2.jpg"
+      ]
+    },
+    {
+      "id": "a6c7d8e9-f0a1-b2c3-d4e5-f6a7b8c9d0e1",
+      "name": "T-shirt 'Born to Be Wild' (moto)",
+      "description_short": "Pour les esprits libres et aventuriers.",
+      "description_long": "Ce t-shirt avec l'inscription 'Born to Be Wild' et un motif moto est parfait pour les passionnés de deux-roues et de liberté.",
+      "price": 36,
+      "currency": "EUR",
+      "stock": 60,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_moto_1.jpg",
+        "https://example.com/images/tshirt_moto_2.jpg"
+      ]
+    },
+    {
+      "id": "b7d8e9f0-a1b2-c3d4-e5f6-a7b8c9d0e1f2",
+      "name": "T-shirt sans Coutures Sport",
+      "description_short": "Confort maximal, minimise les frottements.",
+      "description_long": "Ce t-shirt de sport sans coutures offre un confort supérieur et réduit les irritations pendant l'effort. Idéal pour les sports intenses.",
+      "price": 45,
+      "currency": "EUR",
+      "stock": 100,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_sans_coutures_1.jpg",
+        "https://example.com/images/tshirt_sans_coutures_2.jpg"
+      ]
+    },
+    {
+      "id": "c8e9f0a1-b2c3-d4e5-f6a7-b8c9d0e1f2a3",
+      "name": "T-shirt Coupe Boxy Crème",
+      "description_short": "Silhouette moderne et décontractée.",
+      "description_long": "Le t-shirt à coupe boxy en couleur crème offre une silhouette contemporaine, ample et structurée, parfaite pour un look tendance.",
+      "price": 32,
+      "currency": "EUR",
+      "stock": 115,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_boxy_creme_1.jpg",
+        "https://example.com/images/tshirt_boxy_creme_2.jpg"
+      ]
+    },
+    {
+      "id": "d9f0a1b2-c3d4-e5f6-a7b8-c9d0e1f2a3b4",
+      "name": "T-shirt Rayures Fines Multicolores",
+      "description_short": "Élégance discrète et colorée.",
+      "description_long": "Ce t-shirt combine des rayures fines et multicolores pour un look subtil et élégant, parfait pour égayer une tenue simple.",
+      "price": 34,
+      "currency": "EUR",
+      "stock": 90,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_rayures_fines_1.jpg",
+        "https://example.com/images/tshirt_rayures_fines_2.jpg"
+      ]
+    },
+    {
+      "id": "e0a1b2c3-d4e5-6f7a-8b9c-0d1e2f3a4b5d",
+      "name": "T-shirt avec Détail Brodé Floral",
+      "description_short": "Touche artistique et délicate.",
+      "description_long": "Un t-shirt classique sublimé par une broderie florale délicate. Un détail artistique qui apporte une touche d'originalité et de raffinement.",
+      "price": 40,
+      "currency": "EUR",
+      "stock": 70,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_brode_floral_1.jpg",
+        "https://example.com/images/tshirt_brode_floral_2.jpg"
+      ]
+    },
+    {
+      "id": "f1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6e",
+      "name": "T-shirt Performance Run Léger",
+      "description_short": "Optimisé pour la course à pied.",
+      "description_long": "Ce t-shirt de performance est ultra-léger et respirant, conçu pour optimiser votre confort et vos performances lors de vos sessions de course à pied.",
+      "price": 48,
+      "currency": "EUR",
+      "stock": 80,
+      "category": "t-shirt",
+      "weight": 200,
+      "images": [
+        "https://example.com/images/tshirt_run_leger_1.jpg",
+        "https://example.com/images/tshirt_run_leger_2.jpg"
+      ]
+    },
+    {
+      "id": "27e4e1f7-6c2a-4d3b-8e9f-0a1b2c3d4e5f",
+      "name": "Pantalon Chino Élastique Noir",
+      "description_short": "Chino ajusté avec un confort stretch.",
+      "description_long": "Ce chino noir combine l'élégance d'un pantalon habillé avec le confort d'un tissu stretch. Idéal pour le bureau ou une sortie décontractée.",
+      "price": 62.5,
+      "currency": "EUR",
+      "stock": 110,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/chino_noir_stretch_1.jpg",
+        "https://example.com/images/chino_noir_stretch_2.jpg"
+      ]
+    },
+    {
+      "id": "a9d8c7b6-5e4f-3d2c-1b0a-9f8e7d6c5b4a",
+      "name": "Jean Slim Fit Gris Anthracite",
+      "description_short": "Jean moderne à la coupe affûtée.",
+      "description_long": "Un jean slim fit dans une teinte gris anthracite profonde, parfait pour un look contemporain et facile à associer.",
+      "price": 78,
+      "currency": "EUR",
+      "stock": 95,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/jean_gris_anthracite_1.jpg",
+        "https://example.com/images/jean_gris_anthracite_2.jpg"
+      ]
+    },
+    {
+      "id": "1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e",
+      "name": "Pantalon de Jogging Molleton Gris Chiné",
+      "description_short": "Le confort ultime pour la détente.",
+      "description_long": "Ce pantalon de jogging en molleton doux offre un confort exceptionnel pour vos moments de détente à la maison ou vos activités légères.",
+      "price": 42.99,
+      "currency": "EUR",
+      "stock": 160,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/jogging_gris_chine_1.jpg",
+        "https://example.com/images/jogging_gris_chine_2.jpg"
+      ]
+    },
+    {
+      "id": "3e4f5a6b-7c8d-9e0f-1a2b-3c4d5e6f7a8b",
+      "name": "Pantalon Cargo Beige Léger",
+      "description_short": "Fonctionnalité et style décontracté.",
+      "description_long": "Un pantalon cargo léger en coloris beige, idéal pour les aventures estivales ou un look urbain décontracté avec ses poches pratiques.",
+      "price": 68,
+      "currency": "EUR",
+      "stock": 80,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/cargo_beige_leger_1.jpg",
+        "https://example.com/images/cargo_beige_leger_2.jpg"
+      ]
+    },
+    {
+      "id": "5f6a7b8c-9d0e-1f2a-3b4c-5d6e7f8a9b0c",
+      "name": "Pantalon de Costume Bleu Nuit",
+      "description_short": "Élégance raffinée pour vos événements.",
+      "description_long": "Ce pantalon de costume bleu nuit est un choix sophistiqué pour les occasions formelles, offrant une coupe impeccable et un tissu de qualité.",
+      "price": 115,
+      "currency": "EUR",
+      "stock": 55,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/costume_bleu_nuit_1.jpg",
+        "https://example.com/images/costume_bleu_nuit_2.jpg"
+      ]
+    },
+    {
+      "id": "7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e",
+      "name": "Jean Coupe Droite Vintage Bleu",
+      "description_short": "Un classique indémodable et confortable.",
+      "description_long": "Le jean coupe droite vintage offre un look authentique et un confort optimal. Sa teinte bleue classique se patine avec le temps.",
+      "price": 72,
+      "currency": "EUR",
+      "stock": 100,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/jean_droit_vintage_1.jpg",
+        "https://example.com/images/jean_droit_vintage_2.jpg"
+      ]
+    },
+    {
+      "id": "9d0e1f2a-3b4c-5d6e-7f8a-9b0c1d2e3f4a",
+      "name": "Pantalon en Lin Blanc Cassé",
+      "description_short": "Légèreté et fraîcheur pour l'été.",
+      "description_long": "Ce pantalon en lin blanc cassé est idéal pour les chaudes journées d'été. Son tissu respirant et sa coupe ample garantissent un confort maximal.",
+      "price": 58,
+      "currency": "EUR",
+      "stock": 125,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/lin_blanc_casse_1.jpg",
+        "https://example.com/images/lin_blanc_casse_2.jpg"
+      ]
+    },
+    {
+      "id": "1f2a3b4c-5d6e-7f8a-9b0c-1d2e3f4a5b6c",
+      "name": "Legging de Sport Taille Haute",
+      "description_short": "Maintien parfait pour vos entraînements.",
+      "description_long": "Ce legging de sport à taille haute offre un excellent soutien et une silhouette flatteuse. Idéal pour le yoga, le fitness ou la course.",
+      "price": 38,
+      "currency": "EUR",
+      "stock": 190,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/legging_taille_haute_1.jpg",
+        "https://example.com/images/legging_taille_haute_2.jpg"
+      ]
+    },
+    {
+      "id": "3b4c5d6e-7f8a-9b0c-1d2e-3f4a5b6c7d8e",
+      "name": "Pantalon Velours Côtelé Vert Sapin",
+      "description_short": "Tendance et chaud pour la saison froide.",
+      "description_long": "Adoptez le style rétro avec ce pantalon en velours côtelé vert sapin. Un choix confortable et original pour l'automne et l'hiver.",
+      "price": 82,
+      "currency": "EUR",
+      "stock": 70,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/velours_sapin_1.jpg",
+        "https://example.com/images/velours_sapin_2.jpg"
+      ]
+    },
+    {
+      "id": "7f8a9b0c-1d2e-3f4a-5b6c-7d8e9f0a1b2c",
+      "name": "Pantalon de Randonnée Résistant Bleu",
+      "description_short": "Durabilité et confort pour l'extérieur.",
+      "description_long": "Conçu pour la randonnée, ce pantalon robuste et résistant à l'eau est idéal pour vos excursions en pleine nature. Sa couleur bleue discrète se fond dans le paysage.",
+      "price": 95,
+      "currency": "EUR",
+      "stock": 60,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/randonnee_bleu_1.jpg",
+        "https://example.com/images/randonnee_bleu_2.jpg"
+      ]
+    },
+    {
+      "id": "9b0c1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e",
+      "name": "Pantalon Tailleur Femme Marine",
+      "description_short": "Élégance classique pour le bureau.",
+      "description_long": "Ce pantalon tailleur femme marine offre une coupe intemporelle et un grand confort, parfait pour un look professionnel et élégant.",
+      "price": 85,
+      "currency": "EUR",
+      "stock": 75,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/tailleur_femme_marine_1.jpg",
+        "https://example.com/images/tailleur_femme_marine_2.jpg"
+      ]
+    },
+    {
+      "id": "1d2e3f4a-5b6c-7d8e-9f0a-1b2c3d4e5f6a",
+      "name": "Pantalon en Simili Cuir Marron",
+      "description_short": "Look audacieux et tendance.",
+      "description_long": "Adoptez un style rock chic avec ce pantalon en simili cuir marron. Confortable et stylé, il apportera une touche d'originalité à votre tenue.",
+      "price": 119,
+      "currency": "EUR",
+      "stock": 40,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/simili_cuir_marron_1.jpg",
+        "https://example.com/images/simili_cuir_marron_2.jpg"
+      ]
+    },
+    {
+      "id": "5d6e7f8a-9b0c-1d2e-3f4a-5b6c7d8e9f0a",
+      "name": "Jean Skinny Taille Haute Bleu Foncé",
+      "description_short": "Maintien et silhouette élancée.",
+      "description_long": "Un jean skinny taille haute qui met en valeur la silhouette et offre un confort stretch pour une tenue parfaite au quotidien.",
+      "price": 80,
+      "currency": "EUR",
+      "stock": 90,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/jean_skinny_taille_haute_1.jpg",
+        "https://example.com/images/jean_skinny_taille_haute_2.jpg"
+      ]
+    },
+    {
+      "id": "1d2e3f4a-5b6c-7d8e-9f0a-1b2c3d4e5f6g",
+      "name": "Pantalon de Snowboard Imperméable",
+      "description_short": "Protection optimale pour les sports de glisse.",
+      "description_long": "Conçu pour le snowboard, ce pantalon offre une imperméabilité et une isolation de pointe pour vous garder au sec et au chaud sur les pistes.",
+      "price": 160,
+      "currency": "EUR",
+      "stock": 35,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/snowboard_impermeable_1.jpg",
+        "https://example.com/images/snowboard_impermeable_2.jpg"
+      ]
+    },
+    {
+      "id": "3b4c5d6e-7f8a-9b0c-1d2e-3f4a5b6c7d8f",
+      "name": "Jean Mom Fit Noir Délavé",
+      "description_short": "Look vintage et confortable.",
+      "description_long": "Le jean mom fit noir délavé offre une silhouette décontractée et tendance avec une taille haute et un look authentique vieilli.",
+      "price": 76,
+      "currency": "EUR",
+      "stock": 85,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/jean_mom_noir_1.jpg",
+        "https://example.com/images/jean_mom_noir_2.jpg"
+      ]
+    },
+    {
+      "id": "5d6e7f8a-9b0c-1d2e-3f4a-5b6c7d8e9f0b",
+      "name": "Pantalon de Golf Marine Stretch",
+      "description_short": "Liberté de mouvement sur le parcours.",
+      "description_long": "Ce pantalon de golf marine est conçu avec un tissu stretch pour une liberté de mouvement maximale pendant votre swing, alliant performance et élégance.",
+      "price": 92,
+      "currency": "EUR",
+      "stock": 60,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/golf_marine_stretch_1.jpg",
+        "https://example.com/images/golf_marine_stretch_2.jpg"
+      ]
+    },
+    {
+      "id": "7f8a9b0c-1d2e-3f4a-5b6c-7d8e9f0a1b2d",
+      "name": "Pantalon de Sport Fuselé",
+      "description_short": "Coupe moderne et athlétique.",
+      "description_long": "Un pantalon de sport avec une coupe fuselée qui offre un look moderne et une grande aisance de mouvement pour vos activités sportives.",
+      "price": 55,
+      "currency": "EUR",
+      "stock": 120,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/sport_fusele_1.jpg",
+        "https://example.com/images/sport_fusele_2.jpg"
+      ]
+    },
+    {
+      "id": "9b0c1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4f",
+      "name": "Pantalon en Soie Fluide Rose Poudré",
+      "description_short": "Luxe et douceur pour une silhouette élégante.",
+      "description_long": "Ce pantalon en soie fluide rose poudré est parfait pour une tenue sophistiquée et confortable, idéal pour les occasions spéciales.",
+      "price": 130,
+      "currency": "EUR",
+      "stock": 45,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/soie_rose_1.jpg",
+        "https://example.com/images/soie_rose_2.jpg"
+      ]
+    },
+    {
+      "id": "3b4c5d6e-7f8a-9b0c-1d2e-3f4a5b6c7d8h",
+      "name": "Pantalon de Yoga Confortable",
+      "description_short": "Liberté de mouvement et bien-être.",
+      "description_long": "Ce pantalon de yoga est conçu pour le confort et la flexibilité, idéal pour vos séances de yoga, de méditation ou de relaxation.",
+      "price": 40,
+      "currency": "EUR",
+      "stock": 149,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/yoga_confort_1.jpg",
+        "https://example.com/images/yoga_confort_2.jpg"
+      ]
+    },
+    {
+      "id": "5d6e7f8a-9b0c-1d2e-3f4a-5b6c7d8e9f0i",
+      "name": "Pantalon en Flanelle à Carreaux",
+      "description_short": "Chaud et confortable pour l'hiver.",
+      "description_long": "Ce pantalon en flanelle à carreaux est parfait pour les journées froides. Il apporte une touche cosy et élégante à votre tenue.",
+      "price": 70,
+      "currency": "EUR",
+      "stock": 80,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/flanelle_carreaux_1.jpg",
+        "https://example.com/images/flanelle_carreaux_2.jpg"
+      ]
+    },
+    {
+      "id": "7f8a9b0c-1d2e-3f4a-5b6c-7d8e9f0a1b2j",
+      "name": "Pantalon Cargo Noir Technique",
+      "description_short": "Fonctionnalité et style urbain moderne.",
+      "description_long": "Un pantalon cargo noir au design technique, doté de multiples poches et d'un tissu résistant, idéal pour un look streetwear affirmé.",
+      "price": 88,
+      "currency": "EUR",
+      "stock": 65,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/cargo_noir_tech_1.jpg",
+        "https://example.com/images/cargo_noir_tech_2.jpg"
+      ]
+    },
+    {
+      "id": "9b0c1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4k",
+      "name": "Pantalon de Sport en Molleton Noir",
+      "description_short": "Confort et style essentiels.",
+      "description_long": "Ce pantalon de sport en molleton noir est un basique confortable pour toutes vos activités, du sport à la détente.",
+      "price": 45,
+      "currency": "EUR",
+      "stock": 138,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/molleton_noir_1.jpg",
+        "https://example.com/images/molleton_noir_2.jpg"
+      ]
+    },
+    {
+      "id": "1d2e3f4a-5b6c-7d8e-9f0a-1b2c3d4e5f6l",
+      "name": "Pantalon de Pluie Léger",
+      "description_short": "Protection imperméable et compacte.",
+      "description_long": "Un pantalon de pluie léger et compact, facile à transporter, qui offre une protection efficace contre la pluie lors de vos activités en extérieur.",
+      "price": 75,
+      "currency": "EUR",
+      "stock": 90,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/pluie_leger_1.jpg",
+        "https://example.com/images/pluie_leger_2.jpg"
+      ]
+    },
+    {
+      "id": "3b4c5d6e-7f8a-9b0c-1d2e-3f4a5b6c7d8m",
+      "name": "Pantalon Chino Kaki Classique",
+      "description_short": "Un incontournable décontracté et stylé.",
+      "description_long": "Ce pantalon chino kaki est un classique polyvalent qui s'adapte à de nombreux styles, du casual au smart casual.",
+      "price": 59.99,
+      "currency": "EUR",
+      "stock": 120,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/chino_kaki_classique_1.jpg",
+        "https://example.com/images/chino_kaki_classique_2.jpg"
+      ]
+    },
+    {
+      "id": "5d6e7f8a-9b0c-1d2e-3f4a-5b6c7d8e9f0n",
+      "name": "Pantalon de Travail Robuste",
+      "description_short": "Conçu pour la durabilité et la fonctionnalité.",
+      "description_long": "Ce pantalon de travail est fabriqué dans un tissu résistant pour supporter les conditions difficiles. Idéal pour les professionnels ou les bricoleurs.",
+      "price": 68,
+      "currency": "EUR",
+      "stock": 70,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/travail_robuste_1.jpg",
+        "https://example.com/images/travail_robuste_2.jpg"
+      ]
+    },
+    {
+      "id": "7f8a9b0c-1d2e-3f4a-5b6c-7d8e9f0a1b2o",
+      "name": "Pantalon Cigarette Marine",
+      "description_short": "Coupe élégante et raffinée.",
+      "description_long": "Le pantalon cigarette marine offre une silhouette élégante et moderne, parfaite pour un look habillé ou de bureau.",
+      "price": 72,
+      "currency": "EUR",
+      "stock": 85,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/cigarette_marine_1.jpg",
+        "https://example.com/images/cigarette_marine_2.jpg"
+      ]
+    },
+    {
+      "id": "9b0c1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4p",
+      "name": "Pantalon de Sport Respirant Blanc",
+      "description_short": "Léger et aéré pour l'entraînement intensif.",
+      "description_long": "Ce pantalon de sport blanc est conçu avec un tissu respirant pour vous garder au frais et au sec pendant vos entraînements les plus intenses.",
+      "price": 50,
+      "currency": "EUR",
+      "stock": 110,
+      "category": "pantalon",
+      "weight": 350,
+      "images": [
+        "https://example.com/images/sport_blanc_1.jpg",
+        "https://example.com/images/sport_blanc_2.jpg"
+      ]
+    }
+  ],
+  "carriers": [
+    {
+      "id": "trk001",
+      "name": "Express Rapide",
+      "service_type": "Livraison express (24h-48h)",
+      "area_served": "National",
+      "average_rating": 4.5,
+      "max-weight": 1,
+      "contact_email": "contact@expressrapide.fr",
+      "phone": "+33123456789",
+      "tracking_url_template": "https://expressrapide.fr/suivi?id={tracking_number}",
+      "features": [
+        "Suivi en temps réel",
+        "Assurance standard incluse",
+        "Livraison à domicile"
+      ]
+    },
+    {
+      "id": "trk002",
+      "name": "Cargo Global",
+      "service_type": "Fret international (maritime/aérien)",
+      "area_served": "International",
+      "average_rating": 4.2,
+      "max-weight": 2,
+      "contact_email": "info@cargoglobal.com",
+      "phone": "+12125550100",
+      "tracking_url_template": "https://cargoglobal.com/track?ref={tracking_number}",
+      "features": [
+        "Dédouanement assisté",
+        "Services porte-à-porte",
+        "Expertise logistique"
+      ]
+    },
+    {
+      "id": "trk003",
+      "name": "EcoCoursier",
+      "service_type": "Livraison urbaine (vélo/électrique)",
+      "area_served": "Local (Grandes Villes)",
+      "average_rating": 4.8,
+      "max-weight": 1,
+      "contact_email": "support@ecocoursier.fr",
+      "phone": "+33601020304",
+      "tracking_url_template": "https://ecocoursier.fr/tracer?ref={tracking_number}",
+      "features": [
+        "Zéro émission",
+        "Livraison rapide en ville",
+        "Services écologiques"
+      ]
+    },
+    {
+      "id": "trk004",
+      "name": "TransPort Facile",
+      "service_type": "Livraison standard (3-5 jours)",
+      "area_served": "National",
+      "average_rating": 3.9,
+      "max-weight": 2.5,
+      "contact_email": "aide@transportfacile.fr",
+      "phone": "+33987654321",
+      "tracking_url_template": "https://transportfacile.fr/tracking/{tracking_number}",
+      "features": [
+        "Tarifs économiques",
+        "Réseau étendu",
+        "Option point relais"
+      ]
+    },
+    {
+      "id": "trk005",
+      "name": "Premium Express",
+      "service_type": "Livraison Premium (J+1 avant 10h)",
+      "area_served": "National / Europe",
+      "average_rating": 4.7,
+      "max-weight": 10,
+      "contact_email": "serviceclient@premiumexpress.eu",
+      "phone": "+33711223344",
+      "tracking_url_template": "https://premiumexpress.eu/suivi-colis?id={tracking_number}",
+      "features": [
+        "Livraison prioritaire",
+        "Assurance renforcée",
+        "Service client dédié"
+      ]
+    },
+    {
+      "id": "trk006",
+      "name": "ArtisanLivraison",
+      "service_type": "Livraison de produits fragiles/spéciaux",
+      "area_served": "Régional",
+      "average_rating": 4.6,
+      "max-weight": 12,
+      "contact_email": "contact@artisanlivraison.com",
+      "phone": "+33500112233",
+      "tracking_url_template": "https://artisanlivraison.com/suivi/{tracking_number}",
+      "features": [
+        "Manipulation soignée",
+        "Créneaux horaires flexibles",
+        "Transport sécurisé"
+      ]
+    },
+    {
+      "id": "trk007",
+      "name": "Relais Proximité",
+      "service_type": "Livraison en point relais",
+      "area_served": "National",
+      "average_rating": 4.3,
+      "max-weight": 23,
+      "contact_email": "partenaires@relaisproximite.fr",
+      "phone": "+33890123456",
+      "tracking_url_template": "https://relaisproximite.fr/trouver-colis/{tracking_number}",
+      "features": [
+        "Large réseau de points relais",
+        "Retrait facile",
+        "Flexibilité des horaires"
+      ]
+    }
+  ],
+  "payments": [
+    {
+      "id": "pay001",
+      "order_id": "ord78901234",
+      "customer_id": "cust101",
+      "currency": "EUR",
+      "method": "Carte Bancaire",
+      "status": "completed",
+      "transaction_date": "2025-06-09T14:30:00Z",
+      "processor_response": "Paiement approuvé par la banque.",
+      "notes": "Transaction réussie, commande traitée."
+    },
+    {
+      "id": "pay002",
+      "order_id": "ord78901235",
+      "customer_id": "cust102",
+      "currency": "EUR",
+      "method": "PayPal",
+      "status": "pending",
+      "transaction_date": "2025-06-09T14:35:15Z",
+      "processor_response": "En attente de confirmation de PayPal.",
+      "notes": "L'utilisateur doit valider le paiement sur l'interface PayPal."
+    },
+    {
+      "id": "pay004",
+      "order_id": "ord78901237",
+      "currency": "EUR",
+      "method": "Virement Bancaire",
+      "status": "initiated",
+      "transaction_date": "2025-06-09T14:45:00Z",
+      "processor_response": "Virement en attente de réception.",
+      "notes": "Instructions de virement envoyées au client."
+    },
+    {
+      "id": "pay005",
+      "order_id": "ord78901238",
+      "customer_id": "cust105",
+      "currency": "EUR",
+      "method": "Apple Pay",
+      "status": "completed",
+      "transaction_date": "2025-06-09T14:50:00Z",
+      "processor_response": "Paiement Apple Pay confirmé.",
+      "notes": "Transaction réussie, notification envoyée au client."
+    }
+  ]
+}
