@@ -1,0 +1,125 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Choisir un mode de paiement{% endblock %}
+
+{% block header %}
+    {% include 'shared/header.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <div class="bg-gray-100 p-8 mx-auto max-w-4xl rounded-lg shadow-lg">
+        <h1 class="text-3xl font-bold mb-6 text-gray-900">Étape 4: Choisissez votre mode de paiement</h1>
+        <div class="mb-8 p-6 bg-white rounded shadow">
+            <h2 class="text-xl font-bold mb-2">Récapitulatif de la commande</h2>
+            {% for item in cart %}
+                <div class="flex items-center justify-between py-2 ">
+                    <div>
+                        <span class="font-medium">{{ item.product[0].name }}</span>
+                        <span class="text-gray-500 ml-2">× {{ item.quantity }}</span>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-gray-800">{{ item.product[0].price|number_format(2, ',', ' ') }} €</span>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="flex items-center justify-between py-2 font-bold border-t mt-4">
+                <span>Total produits</span>
+                <span>
+                    {{ cart|reduce((acc, item) => acc + (item.product[0].price * item.quantity), 0)|number_format(2, ',', ' ') }} €
+                </span>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <span>Frais de livraison</span>
+                            <span>
+                    {{ deliveryMethod.shipping_fee|default(0)|number_format(2, ',', ' ') }} €
+                </span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 font-bold border-t">
+                            <span>Total à payer</span>
+                            <span>
+                    {{
+                    (cart|reduce((acc, item) => acc + (item.product[0].price * item.quantity), 0)
+                    + deliveryMethod.shipping_fee|default(0))
+                    |number_format(2, ',', ' ')
+                    }} €
+                </span>
+            </div>
+            <ul class="mb-4 mt-4">
+                <h2 class="font-bold text-xl">Adresse de livraison :</h2>
+                <li>
+                    {{ deliveryInfo.firstName|capitalize }} {{ deliveryInfo.lastName|capitalize }}<br>
+                    {{ deliveryInfo.address|upper }}<br>
+                    {{ deliveryInfo.postalCode|upper }} {{ deliveryInfo.city|upper }}
+                </li>
+                <li class="mt-4">
+                    <h2 class="font-bold text-xl">Méthode de livraison :</h2>
+                    {{ deliveryMethod.name }}
+                </li>
+            </ul>
+            <h2 class="mt-4 font-bold text-xl mb-2">Choisissez votre moyen de paiement</h2>
+            <form method="post" class="space-y-6" id="payment-form">
+                {% for method in paymentMethods %}
+                    <div class="flex items-center space-x-2 mb-1">
+                        <input type="radio" id="payment_{{ method.id }}" name="payment_method" value="{{ method.id }}" required class="accent-blue-600 w-4 h-4 payment-radio">
+                        <label for="payment_{{ method.id }}" class="text-lg">{{ method.method }}</label>
+                    </div>
+                    <div id="payment-form-{{ method.id }}" class="payment-form mb-2" style="display: none;">
+                        {% if method.method|lower == 'carte bancaire' %}
+                            <div class="flex flex-col md:flex-row gap-6 w-full">
+                                <div class="flex-1 flex flex-col gap-4">
+                                    <div>
+                                        {{ form_label(cardForm.card_number, null, {'label_attr': {'class': 'mb-2 text-sm font-semibold text-gray-700'}}) }}
+                                        {{ form_widget(cardForm.card_number, {'attr': {'class': 'block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500'}}) }}
+                                        {{ form_errors(cardForm.card_number) }}
+                                    </div>
+                                    <div>
+                                        {{ form_label(cardForm.expiry_date, null, {'label_attr': {'class': 'mb-2 text-sm font-semibold text-gray-700'}}) }}
+                                        {{ form_widget(cardForm.expiry_date, {'attr': {'class': 'block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500'}}) }}
+                                        {{ form_errors(cardForm.expiry_date) }}
+                                    </div>
+                                </div>
+                                <div class="flex-1 flex flex-col gap-4">
+                                    <div>
+                                        {{ form_label(cardForm.cardholder, null, {'label_attr': {'class': 'mb-2 text-sm font-semibold text-gray-700'}}) }}
+                                        {{ form_widget(cardForm.cardholder, {'attr': {'class': 'block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500'}}) }}
+                                        {{ form_errors(cardForm.cardholder) }}
+                                    </div>
+                                    <div>
+                                        {{ form_label(cardForm.cvv, null, {'label_attr': {'class': 'mb-2 text-sm font-semibold text-gray-700'}}) }}
+                                        {{ form_widget(cardForm.cvv, {'attr': {'class': 'block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500'}}) }}
+                                        {{ form_errors(cardForm.cvv) }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% elseif method.method|lower == 'virement bancaire' %}
+                            <div>
+                                {{ form_label(transferForm.IBAN, null, {'label_attr': {'class': 'mb-2 text-sm font-semibold text-gray-700'}}) }}
+                                {{ form_widget(transferForm.IBAN, {'attr': {'class': 'block w-full px-3 py-2 mb-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500'}}) }}
+                                {{ form_errors(transferForm.IBAN) }}
+                            </div>
+                        {% elseif method.method|lower == 'paypal' %}
+                            <p class="text-gray-600 mb-0">Vous serez redirigé vers PayPal pour finaliser votre paiement.</p>
+                        {% elseif method.method|lower == 'apple pay' %}
+                            <p class="text-gray-600">Vous pouvez utiliser Apple Pay pour finaliser votre paiement.</p>
+                        {% else %}
+                            <p class="text-gray-600">Méthode de paiement non supportée.</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                <div class="flex justify-between items-center mt-6 gap-4">
+                    <a href="{{ path('checkout_delivery') }}" class="bg-gray-500 text-white py-3 px-6 rounded-lg hover:bg-gray-600 transition duration-300">
+                        Étape précédente
+                    </a>
+                    <button type="submit" class="bg-blue-600 cursor-pointer text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">
+                        Payer et confirmer la commande
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('payment') }}
+{% endblock %}

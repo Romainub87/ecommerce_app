@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catalogue{% endblock %}
+
+{% block header %}
+    {% include 'shared/header.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <div class="filter-form bg-gray-100 p-4 rounded-lg mx-[1vw] lg:mx-[5vw] xl:mx-[12vw]">
+        <h1 class="text-start text-xl font-bold mb-4">Filtrer les produits</h1>
+        <div>
+            {{ form_start(form) }}
+            <div class="flex space-x-4 justify-between flex-wrap">
+                {{ form_row(form.name) }}
+                {{ form_row(form.category) }}
+                {{ form_row(form.minPrice) }}
+                {{ form_row(form.maxPrice) }}
+                <div class="flex space-x-4 my-2 items-center">
+                    <button type="submit" class="bg-blue-500 text-white p-2 px-4 rounded-lg cursor-pointer hover:bg-blue-600 transition duration-300">Rechercher</button>
+                    <a href="{{ path('app_home', {'reset': true}) }}" class="bg-red-500 text-white p-2 px-4 rounded-lg cursor-pointer hover:bg-red-600 transition duration-300 flex items-center justify-center">
+                        Réinitialiser
+                    </a>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+    <div class="pagination flex justify-center my-2">
+        {% for i in 1..totalPages %}
+            <a href="{{ path('app_home', {'page': i}) }}" class="px-4 py-2 mx-1 rounded-lg {{ i == currentPage ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800' }}">
+                {{ i }}
+            </a>
+        {% endfor %}
+    </div>
+
+    {% include 'shared/flash.html.twig' %}
+
+    <div class="catalogue grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mx-[1vw] lg:mx-[5vw] xl:mx-[12vw]">
+        {% for product in products %}
+            <div class="product-item card bg-white shadow-md rounded-lg overflow-hidden">
+                <div class="card-body flex flex-col h-full justify-between p-4">
+                    <div class="product-card--header mb-4">
+                        <h3 class="card-title text-lg font-bold text-gray-800">{{ product.name }}</h3>
+                        <p class="card-text text-gray-600">{{ product.description_short }}</p>
+                    </div>
+                    <div>
+                        <p class="card-text text-gray-800 font-semibold">{{ product.price }}€</p>
+                        <div class="flex items-center justify-between mt-4 space-x-4">
+                            <a href="{{ path('product_details', {'id': product.id}) }}" class="cursor-pointer bg-blue-500 text-white p-2 px-3 rounded-lg mt-4 hover:bg-blue-600 transition duration-300">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            {% if product.stock > 0 %}
+                                <form method="POST" action="{{ path('cart_add') }}" class="flex items-center space-x-2 mt-4">
+                                    <input type="hidden" name="product_id" value="{{ product.id }}">
+                                    <input type="number" name="quantity" value="1" min="1" class="w-14 p-1 rounded border border-gray-300">
+                                    <button type="submit" class="cursor-pointer bg-green-500 text-white p-2 px-3 rounded-lg hover:bg-green-600 transition duration-300">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </form>
+                            {% else %}
+                                <span class="text-red-600 font-semibold mt-4 block"><i class="fas fa-exclamation-triangle mr-2"></i>Rupture de stock</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

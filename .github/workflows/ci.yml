@@ -1,0 +1,34 @@
+name: CI
+
+on:
+    push:
+        branches: [ master ]
+    pull_request:
+        branches: [ master ]
+
+jobs:
+    php:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Installer PHP et extensions
+              uses: shivammathur/setup-php@v2
+              with:
+                    php-version: '8.3'
+                    extensions: mbstring, intl, pdo, pdo_mysql
+
+            - name: Installer les dépendances Composer
+              run: composer update && composer install --prefer-dist --no-progress
+
+            -   name: Vérifier le code avec PHP_CodeSniffer
+                run: vendor/bin/phpcs src/
+                continue-on-error: true
+
+            -   name: Corriger le code avec PHP_CodeSniffer (phpcbf)
+                run: vendor/bin/phpcbf src/
+                continue-on-error: true
+
+            -   name: Lancer les tests PHPUnit
+                run: vendor/bin/phpunit
+                continue-on-error: true

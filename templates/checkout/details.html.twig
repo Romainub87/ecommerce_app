@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Informations de Livraison{% endblock %}
+
+{% block header %}
+    {% include 'shared/header.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <div class="checkout-section bg-white p-10 mx-auto max-w-3xl rounded-2xl shadow-xl">
+        <h2 class="text-2xl font-semibold mb-8 text-primary-700">Étape 2&nbsp;: Informations de Livraison</h2>
+        {{ form_start(form, {'attr': {'class': 'space-y-8'}}) }}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="space-y-6">
+                    {{ form_row(form.firstName, {'attr': {'class': 'input-checkout w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500'}}) }}
+                    {{ form_row(form.lastName, {'attr': {'class': 'input-checkout w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500'}}) }}
+                    {{ form_row(form.email, {'attr': {'class': 'input-checkout w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500'}}) }}
+                    {{ form_row(form.phone, {'attr': {'class': 'input-checkout w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500'}}) }}
+                </div>
+                <div class="space-y-6">
+                    {{ form_row(form.address, {'attr': {'class': 'input-checkout w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500'}}) }}
+                    {{ form_row(form.city, {'attr': {'class': 'input-checkout w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500'}}) }}
+                    {{ form_row(form.postalCode, {'attr': {'class': 'input-checkout w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500'}}) }}
+                    {{ form_row(form.country, {'attr': {'class': 'input-checkout w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500'}}) }}
+                </div>
+            </div>
+        <div class="flex justify-between mt-6">
+            <a href="{{ path('cart') }}" class="bg-gray-300 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-400 transition duration-300">
+                Étape précédente
+            </a>
+            <button type="submit" class="cursor-pointer bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300">
+                Étape suivante
+            </button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
