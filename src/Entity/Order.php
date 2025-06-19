@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Entity;
 
 use App\Repository\OrderRepository;
@@ -29,7 +31,7 @@ class Order
     private ?string $paymentId = null;
 
     #[ORM\Column]
-    private ?int $orderTotal = null;
+    private ?float $orderTotal = null;
 
     /**
      * @var Collection<int, OrderItem>
@@ -98,12 +100,12 @@ class Order
         return $this;
     }
 
-    public function getOrderTotal(): ?int
+    public function getOrderTotal(): ?float
     {
         return $this->orderTotal;
     }
 
-    public function setOrderTotal(int $orderTotal): static
+    public function setOrderTotal(float $orderTotal): static
     {
         $this->orderTotal = $orderTotal;
 

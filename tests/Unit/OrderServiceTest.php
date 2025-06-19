@@ -155,7 +155,7 @@ test('createOrder crée une commande avec le bon total et appelle la décrément
 
     $order = $this->orderService->createOrder(['id' => 1], 2, $customer, $cart, $this->em);
     expect($order)->toBeInstanceOf(Order::class)
-        ->and($order->getOrderTotal())->toBe(20);
+        ->and($order->getOrderTotal())->toBe(20.0);
 });
 
 test('createOrder gère un panier vide', function () {
@@ -170,7 +170,7 @@ test('createOrder gère un panier vide', function () {
     $cart = [];
     $order = $this->orderService->createOrder(['id' => 1], 2, $customer, $cart, $this->em);
     expect($order)->toBeInstanceOf(Order::class)
-        ->and($order->getOrderTotal())->toBe(0);
+        ->and($order->getOrderTotal())->toBe(0.0);
 });
 
 test('calculateShippingFees calcule les frais de port', function () {
