@@ -65,7 +65,7 @@ class ApiService
             return [];
         }
         $products = json_decode($response, true);
-        if (! empty($filters['name'])) {
+        if (isset($filters['name']) && $filters['name'] !== '') {
             return $this->filterByName($products, $filters['name']);
         }
         return $products;

@@ -39,5 +39,5 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-fwrite(STDOUT, "Reset de la base de données de test...\n");
+@unlink(__DIR__ . '/../docker/data_test.json');
 copy(__DIR__ . '/../docker/data.origin.json', __DIR__ . '/../docker/data_test.json');

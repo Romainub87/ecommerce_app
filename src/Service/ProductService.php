@@ -50,7 +50,7 @@ class ProductService
     private function getProductOrFail(string $productId): array
     {
         $product = $this->apiService->fetchProductById($productId);
-        if (! $product) {
+        if (!$product) {
             throw new Exception("Produit non trouvé pour l'ID: {$productId}");
         }
         return $product;
@@ -76,7 +76,7 @@ class ProductService
         $client = new Client();
         $product['stock'] = $newStock;
         $response = $client->put(
-            $_ENV['JSONSERVER_URL'] . "/products/{$productId}",
+            $_ENV['JSONSERVER_URL'] . "/products/$productId",
             [
                 'json' => $product,
             ]

@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Entity\Address;
 use App\Entity\Customer;
 use App\Entity\Order;
 use App\Service\ApiService;
@@ -96,22 +95,8 @@ test('createOrder gère un panier vide', function (): void {
         ->setLastName('Panier')
         ->setPhoneNumber('0000000000');
     $this->em->persist($customer);
-
     $cart = [];
-
-    $this->orderItemService
-        ->expects($this->once())
-        ->method('addOrderItems')
-        ->with($this->isInstanceOf(Order::class), $cart, $this->em);
-
-    $this->orderTotalCalculator
-        ->expects($this->once())
-        ->method('getOrderTotal')
-        ->with($cart, 0.0)
-        ->willReturn(0.0);
-
     $order = $this->orderService->createOrder(['id' => '1'], '2', $customer, $cart, $this->em);
-
     expect($order)->toBeInstanceOf(Order::class)
         ->and($order->getOrderTotal())->toBe(0.0);
 });

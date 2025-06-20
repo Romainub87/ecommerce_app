@@ -34,8 +34,6 @@ class CartController extends AbstractController
         $quantity = (int) $request->request->get('quantity', 1);
         $product = $this->apiService->fetchProductById($productId);
 
-        var_dump($product);
-
         if ($product && $this->cartService->addToCart($product, $quantity, $session)) {
             $this->addFlash('success', 'Produit ajouté au panier avec succès.');
         } else {
