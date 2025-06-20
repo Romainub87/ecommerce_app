@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Entity;
 
@@ -83,7 +83,7 @@ class Customer
 
     public function addOrder(Order $order): static
     {
-        if (!$this->orders->contains($order)) {
+        if (! $this->orders->contains($order)) {
             $this->orders->add($order);
             $order->setCustomer($this);
         }

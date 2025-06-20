@@ -1,22 +1,13 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
-namespace App\Service;
+namespace App\Service\Cart;
 
-use Exception;
-use GuzzleHttp\Exception\GuzzleException;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-class CartService
+class CartSessionService
 {
-    private ProductService $productService;
-
-    public function __construct(ProductService $productService)
-    {
-        $this->productService = $productService;
-    }
-
     public function removeProduct($productId, SessionInterface $session): void
     {
         $cart = $session->get('cart', []);
@@ -46,25 +37,5 @@ class CartService
             $cart[$productId]['quantity']++;
             $session->set('cart', $cart);
         }
-    }
-
-    /**
-     * @throws Exception|GuzzleException
-     */
-    public function checkStock($product, int $quantity): bool
-    {
-        $actualStock = $this->productService->getStockFromApi($product[0]["id"]);
-        return isset($product) && $actualStock >= $quantity;
-    }
-
-    public function getCartTotal(array $cart): float
-    {
-        $total = 0.0;
-        foreach ($cart as $item) {
-            if (isset($item['product'], $item['quantity'])) {
-                $total += $item['product'][0]['price'] * $item['quantity'];
-            }
-        }
-        return $total;
     }
 }

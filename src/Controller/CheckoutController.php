@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Controller;
 
@@ -8,9 +8,15 @@ use App\Form\BankCardForm;
 use App\Form\BankTransferForm;
 use App\Form\DeliveryInfoType;
 use App\Service\ApiService;
-use App\Service\CartService;
-use App\Service\OrderService;
+use App\Service\Cart\CartService;
+use App\Service\DeliveryService;
+use App\Service\Entity\AddressService;
+use App\Service\Entity\CustomerService;
+use App\Service\Order\OrderService;
+use App\Service\Order\OrderTotalCalculator;
+use App\Service\SessionService;
 use Doctrine\ORM\EntityManagerInterface;
+use GuzzleHttp\Exception\GuzzleException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,34 +24,36 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class CheckoutController extends AbstractController
 {
-    private ApiService $apiService;
-    private CartService $cartService;
-    private OrderService $orderService;
-
-    public function __construct(ApiService $apiService, CartService $cartService, OrderService $orderService)
-    {
-        $this->cartService = $cartService;
-        $this->orderService = $orderService;
-        $this->apiService = $apiService;
+    public function __construct(
+        private readonly ApiService $apiService,
+        private readonly CartService $cartService,
+        private readonly OrderService $orderService,
+        private readonly CustomerService $customerService,
+        private readonly OrderTotalCalculator $orderTotalCalculator,
+        private readonly AddressService $addressService,
+        private readonly SessionService $sessionService
+    ) {
     }
 
+    /**
+     * @throws GuzzleException
+     */
     #[Route('/checkout/details', name: 'checkout_details')]
     public function checkoutDetails(Request $request): Response
     {
-
         $cart = $request->getSession()->get('cart', []);
         $hasStock = true;
         foreach ($cart as $item) {
-            if (!$this->cartService->checkStock($item['product'], $item['quantity'])) {
+            if (! $this->cartService->checkStock($item['product'], $item['quantity'])) {
                 $hasStock = false;
                 break;
             }
         }
-        if (empty($cart)) {
+        if ($cart === [] || $cart === null) {
             $this->addFlash('error', 'Votre panier est vide. Veuillez ajouter des articles avant de continuer.');
             return $this->redirectToRoute('cart');
         }
-        if (!$hasStock) {
+        if (! $hasStock) {
             $this->addFlash('error', 'Un ou plusieurs articles de votre panier ne sont plus en stock.');
             return $this->redirectToRoute('cart');
         }
@@ -62,51 +70,33 @@ final class CheckoutController extends AbstractController
         }
 
         return $this->render(
-            'checkout/details.html.twig', [
-            'form' => $form->createView(),
+            'checkout/details.html.twig',
+            [
+                'form' => $form->createView(),
             ]
         );
     }
 
     #[Route('/checkout/delivery', name: 'checkout_delivery')]
-    public function chooseDelivery(Request $request): Response
+    public function chooseDelivery(Request $request, DeliveryService $deliveryService): Response
     {
         $cart = $request->getSession()->get('cart', []);
-
-        $orderTotalWeight = 0;
-        $orderTotalPrice = 0;
-
-        foreach ($cart as $item) {
-            $product = $item['product'][0] ?? null;
-            if ($product) {
-                $orderTotalWeight += $product['weight'] * $item['quantity'];
-                $orderTotalPrice += $product['price'] * $item['quantity'];
-            }
-        }
-
         $deliveryMethod = $request->getSession()->get('delivery_method', null);
-        $deliveryMethods = $this->apiService->getDeliveryMethodsWithCorrectWeight($orderTotalWeight);
-        $deliveryMethods = $this->orderService->calculateShippingFees($deliveryMethods, $orderTotalWeight, $orderTotalPrice);
+        $deliveryMethods = $deliveryService->getAvailableDeliveryMethods($cart);
 
         if ($request->isMethod('POST')) {
             $selectedMethod = $request->request->get('delivery_method');
-            $method = array_values(
-                array_filter(
-                    $deliveryMethods, function ($method) use ($selectedMethod) {
-                        return $method['id'] == $selectedMethod;
-                    }
-                )
-            )[0] ?? null;
-
+            $method = $deliveryService->findDeliveryMethodById($deliveryMethods, $selectedMethod);
             $request->getSession()->set('delivery_method', $method);
 
             return $this->redirectToRoute('checkout_payment');
         }
 
         return $this->render(
-            'checkout/delivery.html.twig', [
-            'deliveryMethods' => $deliveryMethods,
-            'selectedMethod' => $deliveryMethod,
+            'checkout/delivery.html.twig',
+            [
+                'deliveryMethods' => $deliveryMethods,
+                'selectedMethod' => $deliveryMethod,
             ]
         );
     }
@@ -116,7 +106,7 @@ final class CheckoutController extends AbstractController
     {
         $cart = $request->getSession()->get('cart', []);
         $deliveryInfo = $request->getSession()->get('delivery_info', []);
-        $deliveryMethod =$request->getSession()->get('delivery_method', null);
+        $deliveryMethod = $request->getSession()->get('delivery_method', null);
         $paymentMethod = $request->getSession()->get('payment_method', null);
         $paymentMethods = $this->apiService->getPaymentMethods();
 
@@ -128,42 +118,39 @@ final class CheckoutController extends AbstractController
         }
 
         return $this->render(
-            'checkout/payment.html.twig', [
-            'transferForm' => $this->createForm(BankTransferForm::class)->createView(),
-            'cardForm' => $this->createForm(BankCardForm::class)->createView(),
-            'totalOrder' => $this->orderService->getOrderTotal($cart, $deliveryMethod['shipping_fee'] ?? 0.0),
-            'cart' => $cart,
-            'deliveryInfo' => $deliveryInfo,
-            'deliveryMethod' => $deliveryMethod,
-            'paymentMethods' => $paymentMethods,
-            'selectedMethod' => $paymentMethod,
+            'checkout/payment.html.twig',
+            [
+                'transferForm' => $this->createForm(BankTransferForm::class)->createView(),
+                'cardForm' => $this->createForm(BankCardForm::class)->createView(),
+                'totalOrder' => $this->orderTotalCalculator->getOrderTotal($cart, $deliveryMethod['shipping_fee'] ?? 0.0),
+                'cart' => $cart,
+                'deliveryInfo' => $deliveryInfo,
+                'deliveryMethod' => $deliveryMethod,
+                'paymentMethods' => $paymentMethods,
+                'selectedMethod' => $paymentMethod,
             ]
         );
     }
 
     #[Route('/checkout/confirmation', name: 'checkout_confirmation')]
-    public function confirmation(Request $request, EntityManagerInterface $em, OrderService $orderService): Response
+    public function confirmation(Request $request, EntityManagerInterface $em): Response
     {
         $deliveryInfo = $request->getSession()->get('delivery_info', []);
         $deliveryMethod = $request->getSession()->get('delivery_method', null);
         $paymentMethod = $request->getSession()->get('payment_method', null);
         $cart = $request->getSession()->get('cart', []);
 
-        $address = $orderService->getOrCreateAddress($deliveryInfo, $em);
-        $customer = $orderService->getOrCreateCustomer($deliveryInfo, $address, $em);
+        $address = $this->addressService->getOrCreateAddress($deliveryInfo, $em);
+        $customer = $this->customerService->getOrCreateCustomer($deliveryInfo, $address, $em);
+
         try {
-            $orderService->createOrder($deliveryMethod, $paymentMethod, $customer, $cart, $em);
+            $this->orderService->createOrder($deliveryMethod, $paymentMethod, $customer, $cart, $em);
+            $this->sessionService->clearCheckoutSession($request->getSession());
+            $this->addFlash('success', 'Votre commande a été créée avec succès !');
         } catch (\Exception $e) {
             $this->addFlash('error', 'Une erreur est survenue lors de la création de la commande. Veuillez réessayer.');
             return $this->redirectToRoute('checkout_payment');
         }
-
-        $em->flush();
-
-        $request->getSession()->remove('delivery_info');
-        $request->getSession()->remove('delivery_method');
-        $request->getSession()->remove('payment_method');
-        $request->getSession()->remove('cart');
 
         return $this->render('checkout/confirmation.html.twig');
     }

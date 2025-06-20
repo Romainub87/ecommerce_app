@@ -24,15 +24,15 @@
                 <ul class="space-y-4">
                     {% for cartItem in cart %}
                         <li class="grid grid-cols-5 items-center gap-4 border-b border-gray-300 pb-4">
-                            <span class="text-md font-medium text-gray-700 text-start">{{ cartItem.product[0].name }}</span>
-                            <span class="text-gray-600 text-center">{{ cartItem.product[0].price }}€</span>
+                            <span class="text-md font-medium text-gray-700 text-start">{{ cartItem.product.name }}</span>
+                            <span class="text-gray-600 text-center">{{ cartItem.product.price }}€</span>
                             <div class="flex items-center justify-center gap-2">
-                                <button type="button" class="rounded text-2xl cursor-pointer transition" data-action="decrease" data-product-id="{{ cartItem.product[0].id }}">-</button>
+                                <button type="button" class="rounded text-2xl cursor-pointer transition" data-action="decrease" data-product-id="{{ cartItem.product.id }}">-</button>
                                 <span class="rounded p-1 w-16 text-center" id="qty-product">{{ cartItem.quantity }}</span>
-                                <button type="button" class="rounded text-2xl cursor-pointer transition" data-action="increase" data-product-id="{{ cartItem.product[0].id }}">+</button>
+                                <button type="button" class="rounded text-2xl cursor-pointer transition" data-action="increase" data-product-id="{{ cartItem.product.id }}">+</button>
                             </div>
-                            <span class="text-gray-800 font-semibold text-center">{{ cartItem.product[0].price * cartItem.quantity }}€</span>
-                            <button type="button" class="cursor-pointer mx-auto text-red-500 w-fit text-end hover:text-red-700 transition duration-300" data-action="remove" data-product-id="{{ cartItem.product[0].id }}">
+                            <span class="text-gray-800 font-semibold text-center">{{ cartItem.product.price * cartItem.quantity }}€</span>
+                            <button type="button" class="cursor-pointer mx-auto text-red-500 w-fit text-end hover:text-red-700 transition duration-300" data-action="remove" data-product-id="{{ cartItem.product.id }}">
                                 Supprimer
                             </button>
                         </li>

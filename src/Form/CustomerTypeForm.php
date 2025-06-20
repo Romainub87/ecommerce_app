@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Form;
 
@@ -22,7 +22,10 @@ class CustomerTypeForm extends AbstractType
     {
         $resolver->setDefaults(
             [
-            'data_class' => Customer::class,
+                'data_class' => Customer::class,
+                'csrf_protection' => true,
+                'csrf_field_name' => '_token',
+                'csrf_token_id' => 'customer_type_form',
             ]
         );
     }

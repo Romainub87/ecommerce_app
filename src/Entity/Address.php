@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Entity;
 
@@ -103,7 +103,7 @@ class Address
 
     public function addCustomer(Customer $customer): static
     {
-        if (!$this->customers->contains($customer)) {
+        if (! $this->customers->contains($customer)) {
             $this->customers->add($customer);
             $customer->setAddress($this);
         }

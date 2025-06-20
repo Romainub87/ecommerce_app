@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block body %}
+    {% include 'shared/flash.html.twig' %}
     <div class="bg-gray-100 p-8 mx-auto max-w-4xl rounded-lg shadow-lg">
         <h1 class="text-3xl font-bold mb-6 text-gray-900">Étape 4: Choisissez votre mode de paiement</h1>
         <div class="mb-8 p-6 bg-white rounded shadow">
@@ -14,18 +15,18 @@
             {% for item in cart %}
                 <div class="flex items-center justify-between py-2 ">
                     <div>
-                        <span class="font-medium">{{ item.product[0].name }}</span>
+                        <span class="font-medium">{{ item.product.name }}</span>
                         <span class="text-gray-500 ml-2">× {{ item.quantity }}</span>
                     </div>
                     <div class="text-right">
-                        <span class="text-gray-800">{{ item.product[0].price|number_format(2, ',', ' ') }} €</span>
+                        <span class="text-gray-800">{{ item.product.price|number_format(2, ',', ' ') }} €</span>
                     </div>
                 </div>
             {% endfor %}
             <div class="flex items-center justify-between py-2 font-bold border-t mt-4">
                 <span>Total produits</span>
                 <span>
-                    {{ cart|reduce((acc, item) => acc + (item.product[0].price * item.quantity), 0)|number_format(2, ',', ' ') }} €
+                    {{ cart|reduce((acc, item) => acc + (item.product.price * item.quantity), 0)|number_format(2, ',', ' ') }} €
                 </span>
                         </div>
                         <div class="flex items-center justify-between py-2">

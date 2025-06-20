@@ -35,6 +35,18 @@
             "./migrations/.gitignore"
         ]
     },
+    "friendsofphp/php-cs-fixer": {
+        "version": "3.75",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.0",
+            "ref": "be2103eb4a20942e28a6dd87736669b757132435"
+        },
+        "files": [
+            "./.php-cs-fixer.dist.php"
+        ]
+    },
     "phpunit/phpunit": {
         "version": "11.5",
         "recipe": {
@@ -184,6 +196,15 @@
         "files": [
             "./config/packages/notifier.yaml"
         ]
+    },
+    "symfony/panther": {
+        "version": "2.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "b57a86d4d5b1e2a8cf9be757976e252fb411ea2a"
+        }
     },
     "symfony/property-info": {
         "version": "7.3",

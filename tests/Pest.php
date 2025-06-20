@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
 |--------------------------------------------------------------------------
 | Test Case
@@ -12,7 +14,6 @@
 */
 
 pest()->extend(Tests\TestCase::class)->in('Integration');
-
 /*
 |--------------------------------------------------------------------------
 | Expectations
@@ -27,7 +28,6 @@ pest()->extend(Tests\TestCase::class)->in('Integration');
 expect()->extend('toBeOne', function () {
     return $this->toBe(1);
 });
-
 /*
 |--------------------------------------------------------------------------
 | Functions

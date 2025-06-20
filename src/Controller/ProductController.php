@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Controller;
 
@@ -23,13 +23,14 @@ final class ProductController extends AbstractController
     {
         $product = $this->apiService->fetchProductById($id);
 
-        if (!$product) {
+        if (! $product) {
             throw $this->createNotFoundException('Product not found.');
         }
 
         return $this->render(
-            'product/details.html.twig', [
-            'product' => $product[0],
+            'product/details.html.twig',
+            [
+                'product' => $product,
             ]
         );
     }

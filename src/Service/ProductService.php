@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Service;
 
@@ -10,7 +10,6 @@ use GuzzleHttp\Exception\GuzzleException;
 
 class ProductService
 {
-
     private ApiService $apiService;
 
     public function __construct(ApiService $apiService)
@@ -51,7 +50,7 @@ class ProductService
     private function getProductOrFail(string $productId): array
     {
         $product = $this->apiService->fetchProductById($productId);
-        if (!$product) {
+        if (! $product) {
             throw new Exception("Produit non trouvé pour l'ID: {$productId}");
         }
         return $product;
@@ -75,10 +74,11 @@ class ProductService
     private function updateProductStock($product, string $productId, int $newStock): void
     {
         $client = new Client();
-        $product[0]['stock'] = $newStock;
+        $product['stock'] = $newStock;
         $response = $client->put(
-            $_ENV['JSONSERVER_URL'] . "/products/{$productId}", [
-                'json' => $product[0],
+            $_ENV['JSONSERVER_URL'] . "/products/{$productId}",
+            [
+                'json' => $product,
             ]
         );
 

@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Form;
 
@@ -15,15 +15,17 @@ class BankTransferForm extends AbstractType
     {
         $builder
             ->add(
-                'IBAN', TextType::class, [
-                'label' => 'IBAN',
-                'attr' => [
-                    'inputmode' => 'text',
-                    'pattern' => '[A-Z]{2}[0-9]{2}[A-Z0-9]{1,30}',
-                    'maxlength' => 34,
-                    'placeholder' => 'Entrez votre IBAN',
-                    'class' => 'block w-full border-b focus:outline-none'
-                ]
+                'IBAN',
+                TextType::class,
+                [
+                    'label' => 'IBAN',
+                    'attr' => [
+                        'inputmode' => 'text',
+                        'pattern' => '[A-Z]{2}[0-9]{2}[A-Z0-9]{1,30}',
+                        'maxlength' => 34,
+                        'placeholder' => 'Entrez votre IBAN',
+                        'class' => 'block w-full border-b focus:outline-none',
+                    ],
                 ]
             );
     }
@@ -32,7 +34,9 @@ class BankTransferForm extends AbstractType
     {
         $resolver->setDefaults(
             [
-            // Configure your form options here
+                'csrf_protection' => true,
+                'csrf_field_name' => '_token',
+                'csrf_token_id' => 'bank_transfer',
             ]
         );
     }

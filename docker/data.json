@@ -7,7 +7,7 @@
       "description_long": "Ce t-shirt blanc en coton 100% biologique offre une sensation douce et confortable. Un basique indispensable pour un style décontracté et éco-responsable.",
       "price": 25,
       "currency": "EUR",
-      "stock": 98,
+      "stock": 86,
       "category": "t-shirt",
       "weight": 200,
       "images": [
@@ -22,7 +22,7 @@
       "description_long": "Affichez votre esprit d'aventure avec ce t-shirt doté d'un imprimé graphique original. Idéal pour ceux qui aiment explorer le monde et les styles audacieux.",
       "price": 35.5,
       "currency": "EUR",
-      "stock": 111,
+      "stock": 109,
       "category": "t-shirt",
       "weight": 200,
       "images": [
@@ -37,7 +37,7 @@
       "description_long": "Adoptez un look intemporel avec ce t-shirt à rayures marines. Parfait pour un style casual chic et facile à assortir avec un jean ou un chino.",
       "price": 29.99,
       "currency": "EUR",
-      "stock": 141,
+      "stock": 136,
       "category": "t-shirt",
       "weight": 200,
       "images": [
@@ -52,7 +52,7 @@
       "description_long": "Ce t-shirt noir à col V est un basique indispensable. Sa coupe ajustée et son tissu doux en font un allié confortable pour toutes les occasions.",
       "price": 19,
       "currency": "EUR",
-      "stock": 249,
+      "stock": 248,
       "category": "t-shirt",
       "weight": 200,
       "images": [
@@ -502,7 +502,7 @@
       "description_long": "Un jean slim fit dans une teinte gris anthracite profonde, parfait pour un look contemporain et facile à associer.",
       "price": 78,
       "currency": "EUR",
-      "stock": 95,
+      "stock": 94,
       "category": "pantalon",
       "weight": 350,
       "images": [

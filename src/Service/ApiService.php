@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Service;
 
@@ -9,7 +9,6 @@ class ApiService
     public function fetchProductsWithFilters(array|null $filters = [], int $page = 1, int $limit = 10): array
     {
         $products = $this->fetchProductsFromApi($filters);
-        $products = $this->applyFilters($products, $filters);
 
         $totalProducts = count($products);
         $totalPages = ceil($totalProducts / $limit);
@@ -32,7 +31,8 @@ class ApiService
     public function fetchProductById(string $id): array|null
     {
         $response = file_get_contents($_ENV['JSONSERVER_URL'] . '/products?id=' . $id);
-        return $response === false ? null : (json_decode($response, true) ?: null);
+        $data = $response === false ? null : (json_decode($response, true) ?: null);
+        return is_array($data) && isset($data[0]) ? $data[0] : null;
     }
 
     public function getDeliveryMethodsWithCorrectWeight(int $orderTotalWeight = 0): array
@@ -59,48 +59,39 @@ class ApiService
 
     private function fetchProductsFromApi(array $filters): array
     {
-        $url = $_ENV['JSONSERVER_URL'] . '/products';
-        if (!empty($filters['category'])) {
-            $url .= '?category=' . urlencode($filters['category']);
-        }
+        $url = $this->buildProductsUrl($filters);
         $response = file_get_contents($url);
         if ($response === false) {
             return [];
         }
-        return json_decode($response, true);
-    }
-
-    private function applyFilters(array $products, array $filters): array
-    {
-        if (isset($filters['minPrice'])) {
-            $products = $this->filterByMinPrice($products, $filters['minPrice']);
-        }
-        if (isset($filters['maxPrice'])) {
-            $products = $this->filterByMaxPrice($products, $filters['maxPrice']);
-        }
-        if (isset($filters['name'])) {
-            $products = $this->filterByName($products, $filters['name']);
+        $products = json_decode($response, true);
+        if (! empty($filters['name'])) {
+            return $this->filterByName($products, $filters['name']);
         }
         return $products;
     }
 
-    private function filterByMinPrice(array $products, $minPrice): array
+    private function buildProductsUrl(array $filters): string
     {
-        return array_filter($products, function ($product) use ($minPrice) {
-            return $product['price'] >= $minPrice;
-        });
-    }
+        $url = $_ENV['JSONSERVER_URL'] . '/products';
+        $params = [];
 
-    private function filterByMaxPrice(array $products, $maxPrice): array
-    {
-        return array_filter($products, function ($product) use ($maxPrice) {
-            return $product['price'] <= $maxPrice;
-        });
+        if (! empty($filters['category'])) {
+            $params[] = 'category=' . urlencode($filters['category']);
+        }
+        if (isset($filters['minPrice']) || isset($filters['maxPrice'])) {
+            $params[] = 'price_gte=' . ($filters['minPrice'] ?? 0);
+            $params[] = 'price_lte=' . ($filters['maxPrice'] ?? PHP_INT_MAX);
+        }
+        if ($params) {
+            $url .= '?' . implode('&', $params);
+        }
+        return $url;
     }
 
     private function filterByName(array $products, $name): array
     {
-        return array_filter($products, function ($product) use ($name) {
+        return array_filter($products, static function ($product) use ($name) {
             return stripos($product['name'], $name) !== false;
         });
     }

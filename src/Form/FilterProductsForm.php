@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Form;
 
@@ -17,33 +17,41 @@ class FilterProductsForm extends AbstractType
     {
         $builder
             ->add(
-                'name', TextType::class, [
-                'required' => false,
-                'label' => 'Nom du produit',
-                'attr' => ['class' => 'block mb-2 focus:outline-none border-b mt-1', 'placeholder' => 'Rechercher un produit...'],
+                'name',
+                TextType::class,
+                [
+                    'required' => false,
+                    'label' => 'Nom du produit',
+                    'attr' => ['class' => 'block mb-2 focus:outline-none border-b mt-1', 'placeholder' => 'Rechercher un produit...'],
                 ]
             )
             ->add(
-                'category', ChoiceType::class, [
-                'required' => false,
-                'choices' => $options['categories'],
-                'placeholder' => 'Toutes les catégories',
-                'label' => 'Catégorie',
-                'attr' => ['class' => 'block mb-2 focus:outline-none border-b mt-1'],
+                'category',
+                ChoiceType::class,
+                [
+                    'required' => false,
+                    'choices' => $options['categories'],
+                    'placeholder' => 'Toutes les catégories',
+                    'label' => 'Catégorie',
+                    'attr' => ['class' => 'block mb-2 focus:outline-none border-b mt-1'],
                 ]
             )
             ->add(
-                'minPrice', NumberType::class, [
-                'required' => false,
-                'label' => 'Prix minimum',
-                'attr' => ['class' => 'block mb-2 focus:outline-none border-b mt-1', 'placeholder' => '0'],
+                'minPrice',
+                NumberType::class,
+                [
+                    'required' => false,
+                    'label' => 'Prix minimum',
+                    'attr' => ['class' => 'block mb-2 focus:outline-none border-b mt-1', 'placeholder' => '0'],
                 ]
             )
             ->add(
-                'maxPrice', NumberType::class, [
-                'required' => false,
-                'label' => 'Prix maximum',
-                'attr' => ['class' => 'block mb-2 focus:outline-none border-b mt-1', 'placeholder' => '1000'],
+                'maxPrice',
+                NumberType::class,
+                [
+                    'required' => false,
+                    'label' => 'Prix maximum',
+                    'attr' => ['class' => 'block mb-2 focus:outline-none border-b mt-1', 'placeholder' => '1000'],
                 ]
             );
     }
@@ -52,7 +60,7 @@ class FilterProductsForm extends AbstractType
     {
         $resolver->setDefaults(
             [
-            'categories' => [],
+                'categories' => [],
             ]
         );
     }

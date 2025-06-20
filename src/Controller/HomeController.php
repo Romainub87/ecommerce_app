@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Controller;
 
@@ -32,7 +32,7 @@ final class HomeController extends AbstractController
             $filters = [];
         } else {
             $filters = $request->getSession()->get('filters', $request->query->all());
-            if (!is_array($filters)) {
+            if (! is_array($filters)) {
                 $filters = [];
             }
         }
@@ -57,11 +57,12 @@ final class HomeController extends AbstractController
         $products = $this->apiService->fetchProductsWithFilters($filters, $page);
 
         return $this->render(
-            'home/index.html.twig', [
-            'form' => $form->createView(),
-            'products' => $products['items'],
-            'totalPages' => $products['totalPages'],
-            'currentPage' => $page,
+            'home/index.html.twig',
+            [
+                'form' => $form->createView(),
+                'products' => $products['items'],
+                'totalPages' => $products['totalPages'],
+                'currentPage' => $page,
             ]
         );
     }
