@@ -55,7 +55,7 @@ beforeEach(function (): void {
         $this->orderItemService
     );
 });
-test('createOrder crée une commande avec le bon total et appelle la décrémentation du stock', function (): void {
+test('création d\'une commande avec le bon total et appelle la décrémentation du stock', function (): void {
     $customer = new Customer();
     $customer
         ->setEmail('test@test.com')
@@ -87,7 +87,7 @@ test('createOrder crée une commande avec le bon total et appelle la décrément
     expect($order)->toBeInstanceOf(Order::class)
         ->and($order->getOrderTotal())->toBe(20.0);
 });
-test('createOrder gère un panier vide', function (): void {
+test('création d\'une commande avec un panier vide', function (): void {
     $customer = new Customer();
     $customer
         ->setEmail('vide@test.com')

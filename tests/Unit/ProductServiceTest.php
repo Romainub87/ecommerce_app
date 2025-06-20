@@ -10,7 +10,7 @@ beforeEach(function (): void {
     $this->productService = new ProductService($this->apiService);
 });
 
-it('décrémente le stock via l\'API', function (): void {
+it('décrémente le stock avec produit et stock valide', function (): void {
     $productId = 'e0a1b2c3-d4e5-6f7a-8b9c-0d1e2f3a4b5c';
     $quantity = 1;
 

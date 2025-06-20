@@ -21,7 +21,7 @@ beforeEach(function (): void {
     $this->shippingFeeCalculator = new ShippingFeeCalculator();
 });
 
-test('calculateShippingFees calcule les frais de port', function (): void {
+test('calcule les frais de port avec poids valide', function (): void {
     $deliveryMethods = [
         ['max-weight' => 10],
         ['max-weight' => 20],
@@ -29,14 +29,14 @@ test('calculateShippingFees calcule les frais de port', function (): void {
     $result = $this->shippingFeeCalculator->calculateShippingFees($deliveryMethods, 5000, 100);
     expect($result[0])->toHaveKey('shipping_fee');
 });
-test('calculateShippingFees gère un poids total nul', function (): void {
+test('calcul de frais de port avec un poids total nul', function (): void {
     $deliveryMethods = [
         ['max-weight' => 5],
     ];
     $result = $this->shippingFeeCalculator->calculateShippingFees($deliveryMethods, 0, 50);
     expect($result[0]['shipping_fee'])->toBeGreaterThanOrEqual(0);
 });
-test('calculateShippingFees gère un prix total élevé', function (): void {
+test('calcul frais de port avec un prix total élevé', function (): void {
     $deliveryMethods = [
         ['max-weight' => 15],
     ];
